@@ -6,6 +6,6 @@ services:
       - .:/app
     ports:
       - 8000:8000
-    image: app:profile
+    image: app:profiles
     container_name: profile_api
     command: python manage.py runserver 0.0.0.0:8000
