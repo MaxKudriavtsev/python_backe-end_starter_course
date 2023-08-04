@@ -36,7 +36,9 @@ supervisorctl restart profiles_api
 
 # Configure nginx
 cp $PROJECT_BASE_PATH/deploy/nginx_profiles_api.conf /etc/nginx/sites-available/profiles_api.conf
-rm /etc/nginx/sites-enabled/default
+if [ -e /etc/nginx/sites-enabled/default ]; then
+    rm /etc/nginx/sites-enabled/default
+fi
 ln -s /etc/nginx/sites-available/profiles_api.conf /etc/nginx/sites-enabled/profiles_api.conf
 systemctl restart nginx.service
 
